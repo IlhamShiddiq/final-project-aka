@@ -9,9 +9,10 @@ void tampilkanMenu() {
     cout << "2. Ubah Pelanggan\n";
     cout << "3. Hapus Pelanggan\n";
     cout << "4. Tampilkan Semua Pelanggan\n";
-    cout << "5. Cari Pelanggan (Iteratif)\n";
-    cout << "6. Cari Pelanggan (Rekursif)\n";
-    cout << "7. Keluar\n";
+    cout << "5. Cari Pelanggan dengan Binary Search (Iteratif)\n";
+    cout << "6. Cari Pelanggan dengan Binary Search (Rekursif)\n";
+    cout << "7. Urutkan Data Pelanggan\n";
+    cout << "8. Keluar\n";
     cout << "Masukkan pilihan Anda: ";
 }
 
@@ -68,7 +69,7 @@ int main() {
             break;
         case 5: {
             int id;
-            cout << "Masukkan ID untuk pencarian: ";
+            cout << "Masukkan ID untuk pencarian (Iteratif): ";
             cin >> id;
             int index = crm.cariPelangganIteratif(id);
             if (index != -1)
@@ -79,7 +80,7 @@ int main() {
         }
         case 6: {
             int id;
-            cout << "Masukkan ID untuk pencarian: ";
+            cout << "Masukkan ID untuk pencarian (Rekursif): ";
             cin >> id;
             int index = crm.cariPelangganRekursif(id, 0, crm.getPelanggan().size() - 1);
             if (index != -1)
@@ -89,12 +90,16 @@ int main() {
             break;
         }
         case 7:
+            crm.urutkanPelanggan();
+            cout << "Data pelanggan berhasil diurutkan berdasarkan ID.\n";
+            break;
+        case 8:
             cout << "Keluar dari program...\n";
             break;
         default:
             cout << "Pilihan tidak valid. Silakan coba lagi.\n";
         }
-    } while (pilihan != 7);
+    } while (pilihan != 8);
 
     return 0;
 }
